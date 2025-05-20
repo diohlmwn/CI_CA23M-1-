@@ -22,18 +22,17 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-        <h2>Form Pendaftaran</h2>
+          <h2>Form Pendaftaran</h2>
+      
+    <?php if ($this->session->flashdata('success')): ?>
+      <p style="color:green;"><?= $this->session->flashdata('success'); ?></p>
+    <?php endif; ?>
 
-        <?php if($this->session->flashdata('success')):?>
-            <p style="color:red;"><?=$this->session->flashdata('success');?></p>
-        <?php endif;?>
+    <?php if ($this->session->flashdata('error')): ?>
+      <p style="color:red;"><?= $this->session->flashdata('error'); ?></p>
+    <?php endif; ?>
 
-        <?php if($this->session->flashdata('error')):?>
-            <p style="color:red;"><?=$this->session->flashdata('error');?></p>
-        <?php endif;?>
-
-        <?=validation_errors('<p style="color:red;">','</p>');?>
-
+    <?= validation_errors('<p style="color:red;">', '</p>'); ?>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -51,20 +50,27 @@
                     <label for="username">Username</label>
                     <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
                 </div>
+            </div>
+            <div class="box-body">
                 <div class="form-group">
-                    <label for="password">password</label>
+                    <label for="password">Password</label>
                     <input type="text" class="form-control" name="password" id="password" placeholder="Password" required>
                 </div>
+            </div>
+            <div class="box-body">
                 <div class="form-group">
                     <label for="konfirmasi">Konfirmasi Password</label>
                     <input type="text" class="form-control" name="confirm_password" id="confirm_password" placeholder="Konfirmasi Password" required>
                 </div>
+            </div>
+            <div class="box-body">
                 <div class="form-group">
-                    <label for="kategori">Role</label>
-                    <select class="form-control" name="role" required>
-                        <option value="admin">Admin</option>
-                        <option value="user">User</option>
+                    <label for="role">Role</label>
+                    <select class="form-control" name="role" irequired>
+                      <option value="admin">Admin</option>
+                      <option value="user">User</option>
                     </select><br>
+                </div>
             </div>
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
